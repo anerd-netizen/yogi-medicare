@@ -1,0 +1,527 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Yogi Medicare | Trusted Pharmacy in Gandhinagar</title>
+    <meta name="description" content="Yogi Medicare - Your trusted medical store in Gandhinagar offering genuine medicines at discounted prices. Pharmacy near Raysan Road.">
+    
+    <!-- Google Fonts: Plus Jakarta Sans for a modern, clinical look -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- AOS Animation Library -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+    <!-- Configuration for Tailwind -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        medical: {
+                            blue: '#0056b3',    /* Trustworthy Blue */
+                            lightBlue: '#eef6fc',
+                            green: '#10b981',   /* Healthcare Green */
+                            dark: '#1e293b',
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        /* Custom Styles & Overrides */
+        body {
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+        
+        .hero-pattern {
+            background-color: #f8fafc;
+            background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%230056b3' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+        }
+
+        .gradient-overlay {
+            background: linear-gradient(135deg, rgba(255,255,255,0.95) 0%, rgba(255,255,255,0.8) 100%);
+        }
+
+        /* Map responsive container */
+        .map-container {
+            position: relative;
+            padding-bottom: 56.25%; /* 16:9 aspect ratio */
+            height: 0;
+            overflow: hidden;
+            border-radius: 0.75rem;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+        }
+        .map-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+
+        .glass-card {
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+    </style>
+</head>
+<body class="text-gray-600 bg-gray-50 flex flex-col min-h-screen">
+
+    <!-- Top Bar -->
+    <div class="bg-medical-blue text-white py-2 text-sm hidden md:block">
+        <div class="container mx-auto px-4 flex justify-between items-center">
+            <div class="flex items-center space-x-6">
+                <span><i class="fas fa-clock mr-2"></i>Open Daily: Until 11:00 PM</span>
+                <span><i class="fas fa-map-marker-alt mr-2"></i>Beryl Complex, Gandhinagar</span>
+            </div>
+            <div class="flex items-center space-x-4">
+                <a href="tel:+919624004374" class="hover:text-medical-green transition"><i class="fas fa-phone-alt mr-1"></i> +91 96240 04374</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Sticky Navigation -->
+    <nav class="sticky top-0 z-50 bg-white shadow-md transition-all duration-300" id="navbar">
+        <div class="container mx-auto px-4 py-3">
+            <div class="flex justify-between items-center">
+                <!-- Logo -->
+                <a href="#" class="flex items-center space-x-2 group">
+                    <div class="bg-medical-blue text-white p-2 rounded-lg group-hover:bg-medical-green transition duration-300">
+                        <i class="fas fa-prescription fa-lg"></i>
+                    </div>
+                    <div>
+                        <h1 class="text-2xl font-bold text-gray-800 leading-none">Yogi <span class="text-medical-blue">Medicare</span></h1>
+                        <span class="text-xs text-gray-500 font-medium tracking-wide">PHARMACY & WELLNESS</span>
+                    </div>
+                </a>
+
+                <!-- Desktop Menu -->
+                <div class="hidden md:flex items-center space-x-8 font-medium">
+                    <a href="#home" class="text-gray-700 hover:text-medical-blue transition">Home</a>
+                    <a href="#about" class="text-gray-700 hover:text-medical-blue transition">About Us</a>
+                    <a href="#services" class="text-gray-700 hover:text-medical-blue transition">Services</a>
+                    <a href="#reviews" class="text-gray-700 hover:text-medical-blue transition">Reviews</a>
+                    <a href="#contact" class="bg-medical-blue hover:bg-blue-700 text-white px-5 py-2.5 rounded-full transition shadow-lg hover:shadow-xl transform hover:-translate-y-0.5">
+                        Contact Us
+                    </a>
+                </div>
+
+                <!-- Mobile Menu Button -->
+                <button id="mobile-menu-btn" class="md:hidden text-gray-800 focus:outline-none">
+                    <i class="fas fa-bars fa-2x"></i>
+                </button>
+            </div>
+
+            <!-- Mobile Menu Dropdown -->
+            <div id="mobile-menu" class="hidden md:hidden mt-4 pb-4 border-t border-gray-100 animate-fade-in-down">
+                <a href="#home" class="block py-2 text-gray-700 hover:text-medical-blue">Home</a>
+                <a href="#about" class="block py-2 text-gray-700 hover:text-medical-blue">About Us</a>
+                <a href="#services" class="block py-2 text-gray-700 hover:text-medical-blue">Services</a>
+                <a href="#reviews" class="block py-2 text-gray-700 hover:text-medical-blue">Reviews</a>
+                <a href="#contact" class="block py-2 text-medical-blue font-bold">Contact Us</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="relative pt-16 pb-20 lg:pt-24 lg:pb-32 overflow-hidden hero-pattern">
+        <div class="container mx-auto px-4 relative z-10">
+            <div class="flex flex-col lg:flex-row items-center gap-12">
+                <!-- Text Content -->
+                <div class="lg:w-1/2" data-aos="fade-right">
+                    <div class="inline-block bg-blue-100 text-medical-blue px-4 py-1.5 rounded-full text-sm font-semibold mb-6">
+                        <i class="fas fa-check-circle mr-2"></i>Genuine Medicines. Guaranteed.
+                    </div>
+                    <h1 class="text-4xl lg:text-6xl font-extrabold text-gray-900 leading-tight mb-6">
+                        Your Trusted <span class="text-medical-blue">Medical Store</span> in Gandhinagar
+                    </h1>
+                    <p class="text-lg text-gray-600 mb-8 leading-relaxed">
+                        Looking for a pharmacy near Raysan Road? We provide genuine medicines at <span class="font-bold text-medical-green">discounted prices</span>. Experience 5-star service and expert healthcare coordination right in your neighborhood.
+                    </p>
+                    
+                    <div class="flex flex-col sm:flex-row gap-4">
+                        <a href="tel:+919624004374" class="flex items-center justify-center bg-medical-blue text-white px-8 py-4 rounded-full font-semibold shadow-lg hover:bg-blue-700 transition transform hover:-translate-y-1">
+                            <i class="fas fa-phone-alt mr-2"></i> Call Now
+                        </a>
+                        <a href="https://wa.me/919624004374?text=Hi%20Yogi%20Medicare,%20I%20would%20like%20to%20order%20medicines." target="_blank" class="flex items-center justify-center bg-green-500 text-white px-8 py-4 rounded-full font-semibold shadow-lg hover:bg-green-600 transition transform hover:-translate-y-1">
+                            <i class="fab fa-whatsapp mr-2 text-xl"></i> Order on WhatsApp
+                        </a>
+                        <a href="https://www.google.com/maps/dir//Yogi+Medicare,+Shop+no+AGF-05,+Beryl+Complex,+Near+Petrol+Pump,+Behind+Raysan+Road,+Gandhinagar,+Gujarat" target="_blank" class="flex items-center justify-center bg-white text-gray-800 border border-gray-200 px-8 py-4 rounded-full font-semibold shadow-md hover:bg-gray-50 transition transform hover:-translate-y-1">
+                            <i class="fas fa-directions mr-2 text-medical-blue"></i> Get Directions
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Hero Image Illustration -->
+                <div class="lg:w-1/2 relative" data-aos="fade-left">
+                    <div class="absolute inset-0 bg-blue-500 rounded-full opacity-5 blur-3xl transform translate-x-10 translate-y-10"></div>
+                    <!-- Using a high quality Unsplash medical image -->
+                    <img src="https://images.unsplash.com/photo-1631549916768-4119b2e5f926?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="Modern Pharmacy Interior" class="relative rounded-2xl shadow-2xl border-4 border-white z-10 w-full object-cover h-[400px] lg:h-[500px]">
+                    
+                    <!-- Floating Badge -->
+                    <div class="absolute bottom-8 -left-4 lg:left-8 bg-white p-4 rounded-xl shadow-xl z-20 flex items-center gap-3 animate-bounce-slow">
+                        <div class="bg-green-100 p-3 rounded-full text-green-600">
+                            <i class="fas fa-tag fa-lg"></i>
+                        </div>
+                        <div>
+                            <p class="text-xs text-gray-500 font-semibold uppercase">Special Offer</p>
+                            <p class="text-gray-800 font-bold">Flat Discounts Daily</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Strip -->
+    <div class="bg-medical-blue py-8">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 text-white text-center">
+                <div class="flex items-center justify-center gap-3">
+                    <i class="fas fa-shipping-fast text-3xl text-blue-200"></i>
+                    <div class="text-left">
+                        <h3 class="font-bold text-lg">Fast Home Delivery</h3>
+                        <p class="text-blue-100 text-sm">Right to your doorstep</p>
+                    </div>
+                </div>
+                <div class="flex items-center justify-center gap-3">
+                    <i class="fas fa-certificate text-3xl text-blue-200"></i>
+                    <div class="text-left">
+                        <h3 class="font-bold text-lg">100% Genuine</h3>
+                        <p class="text-blue-100 text-sm">Authenticated Products</p>
+                    </div>
+                </div>
+                <div class="flex items-center justify-center gap-3">
+                    <i class="fas fa-user-md text-3xl text-blue-200"></i>
+                    <div class="text-left">
+                        <h3 class="font-bold text-lg">Expert Staff</h3>
+                        <p class="text-blue-100 text-sm">Doctor Consultation Coordination</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- About Section -->
+    <section id="about" class="py-20 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col md:flex-row items-center gap-12">
+                <div class="md:w-1/2 order-2 md:order-1" data-aos="fade-up">
+                    <div class="relative">
+                        <img src="https://images.unsplash.com/photo-1576091160550-2173dba999ef?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Pharmacist helping customer" class="rounded-2xl shadow-xl">
+                        <div class="absolute -bottom-6 -right-6 bg-white p-6 rounded-xl shadow-xl border border-gray-100 text-center hidden md:block">
+                            <h4 class="text-4xl font-bold text-medical-blue mb-1">5.0</h4>
+                            <div class="text-yellow-400 text-sm mb-2">
+                                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                            </div>
+                            <p class="text-gray-600 text-sm font-medium">Customer Satisfaction</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="md:w-1/2 order-1 md:order-2" data-aos="fade-up">
+                    <h4 class="text-medical-blue font-bold uppercase tracking-wider text-sm mb-2">About Yogi Medicare</h4>
+                    <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-6">More Than Just a <span class="text-medical-green">Medical Store</span></h2>
+                    <p class="text-gray-600 mb-6 leading-relaxed">
+                        Located conveniently in the Beryl Complex behind Raysan Road, Yogi Medicare is your one-stop solution for all pharmaceutical needs. We pride ourselves on being a premier <strong>discount medical store in Gujarat</strong>.
+                    </p>
+                    <p class="text-gray-600 mb-8 leading-relaxed">
+                        Our knowledgeable staff goes beyond just handing over medicine. We coordinate with your doctors to ensure you get exactly what you need. Whether it's prescription refills or finding that specific healthcare essential, we are here to help.
+                    </p>
+                    
+                    <ul class="space-y-4">
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-medical-green mt-1 mr-3"></i>
+                            <span class="text-gray-700"><strong>One-Stop Solution:</strong> Prescription, OTC, and equipment under one roof.</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-medical-green mt-1 mr-3"></i>
+                            <span class="text-gray-700"><strong>Affordable Care:</strong> Genuine products at discounted prices every day.</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-medical-green mt-1 mr-3"></i>
+                            <span class="text-gray-700"><strong>Personalized Service:</strong> We care about your recovery and health.</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="py-20 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <div class="text-center max-w-2xl mx-auto mb-16" data-aos="fade-up">
+                <h4 class="text-medical-blue font-bold uppercase tracking-wider text-sm mb-2">Our Services</h4>
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-900">Comprehensive Healthcare Solutions</h2>
+                <p class="text-gray-600 mt-4">We offer a wide range of services to ensure your health is never compromised.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Service Card 1 -->
+                <div class="bg-white p-8 rounded-2xl shadow-md hover:shadow-xl transition duration-300 border-b-4 border-medical-blue group" data-aos="fade-up" data-aos-delay="100">
+                    <div class="w-14 h-14 bg-blue-100 rounded-lg flex items-center justify-center text-medical-blue text-2xl mb-6 group-hover:bg-medical-blue group-hover:text-white transition">
+                        <i class="fas fa-pills"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-3">Prescription Medicines</h3>
+                    <p class="text-gray-600 text-sm leading-relaxed">
+                        100% authenticated and genuine supplies sourced from trusted manufacturers. We ensure you get the exact dosage prescribed.
+                    </p>
+                </div>
+
+                <!-- Service Card 2 -->
+                <div class="bg-white p-8 rounded-2xl shadow-md hover:shadow-xl transition duration-300 border-b-4 border-medical-green group" data-aos="fade-up" data-aos-delay="200">
+                    <div class="w-14 h-14 bg-green-100 rounded-lg flex items-center justify-center text-medical-green text-2xl mb-6 group-hover:bg-medical-green group-hover:text-white transition">
+                        <i class="fas fa-capsules"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-3">OTC & Essentials</h3>
+                    <p class="text-gray-600 text-sm leading-relaxed">
+                        From wellness supplements to daily health essentials and first aid kits, find everything you need for your family's well-being.
+                    </p>
+                </div>
+
+                <!-- Service Card 3 -->
+                <div class="bg-white p-8 rounded-2xl shadow-md hover:shadow-xl transition duration-300 border-b-4 border-medical-blue group" data-aos="fade-up" data-aos-delay="300">
+                    <div class="w-14 h-14 bg-blue-100 rounded-lg flex items-center justify-center text-medical-blue text-2xl mb-6 group-hover:bg-medical-blue group-hover:text-white transition">
+                        <i class="fas fa-user-doctor"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-3">Doctor Coordination</h3>
+                    <p class="text-gray-600 text-sm leading-relaxed">
+                        Seamless support for your healthcare journey. We help verify prescriptions and coordinate with specialists if needed.
+                    </p>
+                </div>
+
+                <!-- Service Card 4 -->
+                <div class="bg-white p-8 rounded-2xl shadow-md hover:shadow-xl transition duration-300 border-b-4 border-medical-green group" data-aos="fade-up" data-aos-delay="400">
+                    <div class="w-14 h-14 bg-green-100 rounded-lg flex items-center justify-center text-medical-green text-2xl mb-6 group-hover:bg-medical-green group-hover:text-white transition">
+                        <i class="fas fa-truck-medical"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-3">Home Delivery</h3>
+                    <p class="text-gray-600 text-sm leading-relaxed">
+                        Can't make it to the store? We offer fast, reliable delivery in Gandhinagar to ensure you never miss a dose.
+                    </p>
+                </div>
+
+                <!-- Service Card 5 -->
+                <div class="bg-white p-8 rounded-2xl shadow-md hover:shadow-xl transition duration-300 border-b-4 border-medical-blue group" data-aos="fade-up" data-aos-delay="500">
+                    <div class="w-14 h-14 bg-blue-100 rounded-lg flex items-center justify-center text-medical-blue text-2xl mb-6 group-hover:bg-medical-blue group-hover:text-white transition">
+                        <i class="fas fa-baby"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-3">Baby & Mom Care</h3>
+                    <p class="text-gray-600 text-sm leading-relaxed">
+                        Specialized products for mothers and infants, including nutrition, hygiene, and care products.
+                    </p>
+                </div>
+
+                <!-- Service Card 6 -->
+                <div class="bg-white p-8 rounded-2xl shadow-md hover:shadow-xl transition duration-300 border-b-4 border-medical-green group" data-aos="fade-up" data-aos-delay="600">
+                    <div class="w-14 h-14 bg-green-100 rounded-lg flex items-center justify-center text-medical-green text-2xl mb-6 group-hover:bg-medical-green group-hover:text-white transition">
+                        <i class="fas fa-pump-medical"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-3">Health Equipment</h3>
+                    <p class="text-gray-600 text-sm leading-relaxed">
+                        Availability of essential medical equipment like BP monitors, sugar testing kits, nebulizers, and more.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Reviews Section -->
+    <section id="reviews" class="py-20 bg-white">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl md:text-4xl font-bold text-gray-900 text-center mb-12">What Our Customers Say</h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- Review 1 -->
+                <div class="bg-gray-50 p-6 rounded-xl border border-gray-100" data-aos="fade-up">
+                    <div class="flex text-yellow-400 mb-4 text-sm">
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                    </div>
+                    <p class="text-gray-600 mb-4 italic">"Excellent service! They managed to get a specific medicine I couldn't find anywhere else in Gandhinagar. The staff is extremely helpful."</p>
+                    <div class="flex items-center">
+                        <div class="w-10 h-10 bg-blue-200 rounded-full flex items-center justify-center text-medical-blue font-bold mr-3">R</div>
+                        <div>
+                            <h5 class="font-bold text-gray-900 text-sm">Rahul Patel</h5>
+                            <span class="text-xs text-gray-500">Local Resident</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Review 2 -->
+                <div class="bg-gray-50 p-6 rounded-xl border border-gray-100" data-aos="fade-up" data-aos-delay="100">
+                    <div class="flex text-yellow-400 mb-4 text-sm">
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                    </div>
+                    <p class="text-gray-600 mb-4 italic">"Best pharmacy near Raysan Road. Great discounts and very genuine advice. Highly recommended for daily medicines."</p>
+                    <div class="flex items-center">
+                        <div class="w-10 h-10 bg-green-200 rounded-full flex items-center justify-center text-medical-green font-bold mr-3">S</div>
+                        <div>
+                            <h5 class="font-bold text-gray-900 text-sm">Sneha Shah</h5>
+                            <span class="text-xs text-gray-500">Loyal Customer</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Review 3 -->
+                <div class="bg-gray-50 p-6 rounded-xl border border-gray-100" data-aos="fade-up" data-aos-delay="200">
+                    <div class="flex text-yellow-400 mb-4 text-sm">
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                    </div>
+                    <p class="text-gray-600 mb-4 italic">"I order via WhatsApp and the delivery is super fast. Very convenient and professional service."</p>
+                    <div class="flex items-center">
+                        <div class="w-10 h-10 bg-purple-200 rounded-full flex items-center justify-center text-purple-600 font-bold mr-3">A</div>
+                        <div>
+                            <h5 class="font-bold text-gray-900 text-sm">Amit Desai</h5>
+                            <span class="text-xs text-gray-500">Verified Buyer</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Call to Action -->
+    <section class="py-16 bg-medical-blue relative overflow-hidden">
+        <div class="absolute inset-0 bg-blue-900 opacity-20"></div>
+        <div class="container mx-auto px-4 relative z-10 text-center text-white">
+            <h2 class="text-3xl md:text-4xl font-bold mb-6">Your Health is Our Priority</h2>
+            <p class="text-xl text-blue-100 mb-8 max-w-2xl mx-auto">Visit us today for genuine medicines and expert advice.</p>
+            <div class="flex justify-center gap-4 flex-wrap">
+                <a href="tel:+919624004374" class="bg-white text-medical-blue px-8 py-3 rounded-full font-bold shadow-lg hover:bg-gray-100 transition">
+                    Call Us Now
+                </a>
+                <a href="https://wa.me/919624004374" target="_blank" class="bg-green-500 text-white px-8 py-3 rounded-full font-bold shadow-lg hover:bg-green-600 transition">
+                    WhatsApp
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-20 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col lg:flex-row gap-8 bg-white rounded-3xl overflow-hidden shadow-xl">
+                <!-- Info Column -->
+                <div class="lg:w-1/3 p-10 bg-medical-dark text-white">
+                    <h3 class="text-2xl font-bold mb-6">Contact Information</h3>
+                    <p class="text-gray-400 mb-8">Reach out to us for any medical inquiry or visit our store.</p>
+                    
+                    <div class="space-y-6">
+                        <div class="flex items-start">
+                            <i class="fas fa-map-marker-alt text-medical-green mt-1 mr-4 text-xl"></i>
+                            <div>
+                                <h4 class="font-bold mb-1">Our Location</h4>
+                                <p class="text-sm text-gray-300">Shop no AGF-05, Near Petrol Pump,<br>Beryl Complex, Behind Raysan Road,<br>Gandhinagar, Gujarat 382426</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start">
+                            <i class="fas fa-phone-alt text-medical-green mt-1 mr-4 text-xl"></i>
+                            <div>
+                                <h4 class="font-bold mb-1">Phone Number</h4>
+                                <p class="text-sm text-gray-300 hover:text-white transition"><a href="tel:+919624004374">+91 96240 04374</a></p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start">
+                            <i class="fas fa-clock text-medical-green mt-1 mr-4 text-xl"></i>
+                            <div>
+                                <h4 class="font-bold mb-1">Business Hours</h4>
+                                <p class="text-sm text-gray-300">Open Daily</p>
+                                <p class="text-sm text-gray-300">Closes at 11:00 PM</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="mt-10">
+                        <h4 class="font-bold mb-3">Follow Us</h4>
+                        <div class="flex space-x-4">
+                            <a href="#" class="w-10 h-10 rounded-full bg-gray-700 flex items-center justify-center hover:bg-medical-blue transition"><i class="fab fa-facebook-f"></i></a>
+                            <a href="#" class="w-10 h-10 rounded-full bg-gray-700 flex items-center justify-center hover:bg-pink-600 transition"><i class="fab fa-instagram"></i></a>
+                            <a href="https://wa.me/919624004374" class="w-10 h-10 rounded-full bg-gray-700 flex items-center justify-center hover:bg-green-500 transition"><i class="fab fa-whatsapp"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Map Column -->
+                <div class="lg:w-2/3 p-4 lg:p-6 bg-white">
+                    <div class="map-container w-full h-full rounded-xl overflow-hidden">
+                        <!-- Embedded Google Map -->
+                        <iframe 
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3667.632598382442!2d72.636!3d23.185!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjPCsDExJzAxLjAiTiA3MsKwMzgnMDkuNiJF!5e0!3m2!1sen!2sin!4v1620000000000!5m2!1sen!2sin&q=Beryl+Complex+Gandhinagar" 
+                            width="100%" 
+                            height="100%" 
+                            style="border:0;" 
+                            allowfullscreen="" 
+                            loading="lazy"
+                            title="Yogi Medicare Location">
+                        </iframe>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-gray-400 py-8 border-t border-gray-800">
+        <div class="container mx-auto px-4 flex flex-col md:flex-row justify-between items-center">
+            <div class="mb-4 md:mb-0">
+                <p>&copy; 2023 Yogi Medicare. All rights reserved.</p>
+            </div>
+            <div class="flex space-x-6 text-sm">
+                <a href="#" class="hover:text-white transition">Privacy Policy</a>
+                <a href="#" class="hover:text-white transition">Terms of Service</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    
+    <!-- AOS Animation Library -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        // Initialize Animations
+        AOS.init({
+            duration: 800,
+            once: true,
+            offset: 100
+        });
+
+        // Mobile Menu Toggle
+        const btn = document.getElementById('mobile-menu-btn');
+        const menu = document.getElementById('mobile-menu');
+
+        btn.addEventListener('click', () => {
+            menu.classList.toggle('hidden');
+        });
+
+        // Sticky Navbar Effect
+        window.addEventListener('scroll', function() {
+            const navbar = document.getElementById('navbar');
+            if (window.scrollY > 50) {
+                navbar.classList.add('shadow-lg');
+                navbar.classList.replace('py-3', 'py-2');
+            } else {
+                navbar.classList.remove('shadow-lg');
+                navbar.classList.replace('py-2', 'py-3');
+            }
+        });
+    </script>
+</body>
+</html>
